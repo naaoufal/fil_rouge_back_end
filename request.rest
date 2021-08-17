@@ -1,0 +1,48 @@
+GET http://localhost:3001/api/admins/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGVtYWlsIjoibmFvdWZlbGJlbm1lbnNvdXJAZ21haWwuY29tIiwiYWRwYXNzd29yZCI6ImF6ZXIiLCJpYXQiOjE2MTUzMzc0MDN9.2cRZOqskLOQYxIzllynQVm98Eeu5kpV_h-VrtfMXOsA
+
+###
+
+POST http://localhost:3001/api/admins/add
+Content-Type: application/json
+
+{
+    "firstname" : "naoufal",
+    "lastname" : "benmansour",
+    "gender" : "mâle",
+    "email" : "test@gmail.com",
+    "adress" : "Lotissement X rue X",
+    "phone" : 614675855,
+    "password" : "azer"
+}
+
+###
+POST http://localhost:3001/api/admins/Auth
+Content-Type: application/json
+
+{
+    "email" : "test@gmail.com",
+    "password" : "azer"
+}
+
+###
+GET http://localhost:3001/api/tags/all
+Authorization : bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGVtYWlsIjoibmFvdWZlbGJlbm1lbnNvdXJAZ21haWwuY29tIiwiYWRwYXNzd29yZCI6ImF6ZXIiLCJpYXQiOjE2MjAwNDM2Mzd9.z6iXSmVS-UchCZq0uRfFkYWzJcFDT6iAiupNNSOcNu8
+
+###
+
+GET http://localhost:3001/api/tags/publicTags
+
+###
+
+POST http://localhost:3001/api/posts/add
+Content-Type: application/json
+
+{
+    "title" : "test",
+    "desc" : "this desc for test",
+    "user_id" : "user1",
+    "is_valid" : false,
+    "stat_post" : "résolu",
+    "createdAt" : "12/08/2021"
+}
