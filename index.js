@@ -1,15 +1,28 @@
-const express = require("express")
-const socket = require("socket.io")
+const express = require("express");
 const cors = require('cors');
-require("dotenv").config()
-const connectDB = require("./back_end/config/mongodb")
-const app = express()
+require("dotenv").config();
+const connectDB = require("./back_end/config/mongodb");
+const app = express();
+const http = require('http');
+const server = http.createServer(app)
+// init socket :
+const socket = require("socket.io");
+const io = socket(server)
 
 // connect to database with mongodb:
 connectDB()
 
 app.use(express.json())
 app.use(cors())
+
+// socket io config :
+io.on("connection", socket => {
+    socket.emit('ID', socket.id)
+    //socket.emit('firstname', socket.name)
+    socket.on("send message", body => {
+        io.emit("message", body)
+    })
+})
 
 
 // declaring url endpoints :
@@ -21,4 +34,4 @@ app.use("/api/posts", require("./back_end/routes/posts"))
 
 
 // start the server
-app.listen(3001, () => console.log("the server is started"))
+server.listen(3001, () => {console.log("the server is started")});

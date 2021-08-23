@@ -5,7 +5,7 @@ require('dotenv').config()
 // Get all posts:
 async function all (req, res) {
     try {
-        const post = await Post.find()
+        const post = await Post.find().sort({ createdAt : -1 })
         res.json(post)
     } catch (error) {
         res.json({message : error.message})
