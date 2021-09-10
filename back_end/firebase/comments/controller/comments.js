@@ -35,6 +35,24 @@ const addComment = async (req, res) => {
     // })
 }
 
+const getComment = async (req, res) => {
+    
+    res.json("work")
+    
+    // via firestore :
+    // try {
+    //     const comments = admin.firestore().collection("comments")
+    //     const snapShot = await comments.get()
+
+    //     snapShot.forEach(doc => {
+    //         console.log(JSON.stringify(doc.data()))
+    //     })
+    // } catch (error) {
+    //     console.log(error)
+    // }
+}
+
 module.exports = {
     addComment,
+    getComment
 }
