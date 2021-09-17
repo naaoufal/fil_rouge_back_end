@@ -25,32 +25,44 @@ const addComment = async (req, res) => {
     })
 
     // via real time database :
-    const db = admin.database().ref("saving-data/posts")
-    const userRef = db.child("comments")
-    userRef.set({
-        userID : req.body.userID,
-        name : req.body.name,
-        articleID : req.body.articleID,
-        comment : req.body.comment,
-        dateComment : new Date()
-    })
+    // const db = admin.database().ref("saving-data/posts")
+    // const userRef = db.child("comments")
+    // userRef.set({
+    //     userID : req.body.userID,
+    //     name : req.body.name,
+    //     articleID : req.body.articleID,
+    //     comment : req.body.comment,
+    //     dateComment : new Date()
+    // })
 }
 
 const getComment = async (req, res) => {
-    
-    res.send("work")
-    
+    //res.send("work")
+    const all = []
     // via firestore :
-    // try {
-    //     const comments = admin.firestore().collection("comments")
-    //     const snapShot = await comments.get()
+    try {
+        const comments = await admin.firestore().collection("comments").get()
+        
 
-    //     snapShot.forEach(doc => {
-    //         console.log(doc.data())
-    //     })
-    // } catch (error) {
-    //     console.log(error)
-    // }
+        comments.docs.map(com => {
+            all.push(com.data())
+        })
+
+        res.json(all)
+
+    } catch (error) {
+        console.log(error)
+    }
+
+    // via real time database :
+    // const db = admin.database()
+    // const ref = db.ref('saving-data/posts/comments')
+
+    // ref.on('value', (snapShot) => {
+    //     //console.log(snapShot.val())
+    //     res.json(snapShot.val())
+    //     return snapShot.val();
+    // })
 }
 
 module.exports = {
