@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const staffCon = require("../controllers/staffs")
-const access = require('../midllewares/authAdmin')
+const access = require('../midllewares/staffAuth')
 
 router.get("/all", access, staffCon.all)
 

@@ -59,14 +59,14 @@ async function deleteStaff (req, res) {
     })
 }
 
-// auth an admin (Json Web Token) :
+// auth a staff (Json Web Token) :
 async function login (req, res, next) {
     const {email, password} = req.body
-    Admin.findOne({
+    Staffs.findOne({
         email : email,
         password : password
-    }).then(admin => {
-        if(!admin){
+    }).then(staff => {
+        if(!staff){
             res.json({message : "You re Not Allowed"})
         } else {
             const email = req.body.email
