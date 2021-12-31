@@ -51,7 +51,8 @@ const getComment = async (req, res) => {
         res.json(all)
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
+        return error;
     }
 
     // via real time database :

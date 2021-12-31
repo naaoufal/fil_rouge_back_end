@@ -46,3 +46,15 @@ Content-Type: application/json
     "stat_post" : "résolu",
     "createdAt" : "12/08/2021"
 }
+
+###
+
+POST http://localhost:3001/api/groups/add
+Content-Type: application/json
+
+{
+    "groupName" : "Group One",
+    "groupOwner" : "60c88c494a57fb387004b469",
+    "groupMessage" : "This message from naoufal to test",
+    "groupReciever" : "60c89b66b9a9962b849aee1b"
+}

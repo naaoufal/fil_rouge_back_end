@@ -18,6 +18,7 @@ async function createOne (req, res) {
         title : req.body.title,
         desc : req.body.desc,
         user_id : req.body.user_id,
+        user_name : req.body.user_name,
         is_valid : req.body.is_valid,
         stat_post : req.body.stat_post,
         createdAt : req.body.createdAt,

@@ -20,6 +20,9 @@ app.use("/api/clients", require("./back_end/routes/clients"))
 app.use("/api/posts", require("./back_end/routes/posts"))
 app.use("/api/comments", require("./back_end/firebase/comments/routes/comments"))
 
+// public route for groups (testing) : 
+app.use("/api/groups", require("./back_end/routes/groups"))
+
 
 // start the server
 server.listen(3001, () => {console.log("the server is started")});

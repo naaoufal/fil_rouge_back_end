@@ -14,6 +14,10 @@ const postsSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    user_name : {
+        type : String,
+        required : true
+    },
     is_valid : {
         type : String,
         required : true
