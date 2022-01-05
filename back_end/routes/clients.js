@@ -23,7 +23,7 @@ router.post("/auth", clientCon.login)
 
 router.get("/oneClient", clientCon.findClient)
 
-router.post("/add", upload.single('image'), clientCon.createOne)
+router.post("/add", clientCon.createOne)
 
 router.delete("/delete/:id", clientCon.deleteClient)
 

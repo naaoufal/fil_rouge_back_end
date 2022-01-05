@@ -52,7 +52,7 @@ app.use("/api/groups", require("./back_end/routes/groups"))
 // Authentification using social networks :
 app.get("/facebook/auth", passport.authenticate('facebook', { scope : 'email' }))
 app.get("/facebook/callback", passport.authenticate('facebook', {
-    successRedirect : '/profile',
+    successRedirect : '/',
     failureRedirect : '/failed'
 }))
 app.get("/profile", (req, res) => {
