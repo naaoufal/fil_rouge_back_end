@@ -32,6 +32,21 @@ async function findClient (req, res) {
     }
 }
 
+// edit client by ID :
+async function edit (req, res) {
+    if(!req.body) {
+        return res.send({ message : "They is no DATA !!!" })
+    }
+    const id = req.params.id
+    Client.findByIdAndUpdate(id, req.body, { userFindAndModify : false }).then(data => {
+        if(!data) {
+            res.send({ message : "they is no Client !!" })
+        } else {
+            res.send({ message : "Client Updated !!!" })
+        }
+    })
+}
+
 // Create new Client :
 async function createOne (req, res) {
     const client = new Client({
@@ -93,5 +108,6 @@ module.exports = {
     login,
     createOne,
     findClient,
-    deleteClient
+    deleteClient,
+    edit
 }

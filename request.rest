@@ -74,3 +74,8 @@ Content-Type: application/json
     "is_valid" : false,
     "suspended" : false
 }
+
+###
+
+GET http://localhost:3001/api/staffs/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGVtYWlsIjoibmFvdWZlbGJlbm1lbnNvdXJAZ21haWwuY29tIiwiYWRwYXNzd29yZCI6ImF6ZXIiLCJpYXQiOjE2NDE2NTQ3NjR9.hOujnhkWDCtMX7wFcenJWSaaLzrCPBuDLvrY0ZwXEX4

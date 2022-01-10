@@ -3,14 +3,14 @@ const router = express.Router()
 const staffCon = require("../controllers/staffs")
 const access = require('../midllewares/staffAuth')
 
-router.get("/all", access, staffCon.all)
+router.get("/all", staffCon.all)
 
-router.post("/add", access, staffCon.createOne)
+router.post("/add", staffCon.createOne)
 
 router.post("/authStatff", staffCon.login)
 
-router.patch("/edit/:id", access, staffCon.edit)
+router.patch("/edit/:id", staffCon.edit)
 
-router.delete("/delete/:id", access, staffCon.deleteStaff)
+router.delete("/delete/:id", staffCon.deleteStaff)
 
 module.exports = router

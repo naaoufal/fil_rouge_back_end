@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
 const upload = multer({storage : storage})
 
 
-router.get("/all", access, clientCon.all)
+router.get("/all", clientCon.all)
 
 router.post("/auth", clientCon.login)
 
@@ -26,5 +26,7 @@ router.get("/oneClient", clientCon.findClient)
 router.post("/add", clientCon.createOne)
 
 router.delete("/delete/:id", clientCon.deleteClient)
+
+router.patch("/edit/:id", clientCon.edit)
 
 module.exports = router
